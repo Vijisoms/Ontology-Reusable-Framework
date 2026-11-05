@@ -1,0 +1,117 @@
+{
+  "format_version": 1,
+  "config": {
+    "source_workspace_id": "2a5449be-c5ac-5850-8580-f0700a57903d",
+    "pipeline_name": "Pl_End_to_End_Terra_workflow",
+    "lakehouse_name": "lh_terra",
+    "notebook_name": "create_ontology_new_experience",
+    "source_notebook_names": [
+      "create_ontology_new_experience"
+    ]
+  },
+  "items": [
+    {
+      "id": "6f6c49b7-d05e-5fc8-a324-2ad38b2aeac0",
+      "displayName": "lh_terra",
+      "type": "Lakehouse"
+    },
+    {
+      "id": "5636c4f8-e06e-514c-b274-70945ee24df7",
+      "displayName": "create_ontology_new_experience",
+      "type": "Notebook"
+    },
+    {
+      "id": "1cf7df7a-c117-54db-8989-e0fc91cd669b",
+      "displayName": "Pl_End_to_End_Terra_workflow",
+      "type": "DataPipeline"
+    },
+    {
+      "id": "5bef19ff-5f7d-5e40-9d05-fd1e02262128",
+      "displayName": "DF_GeoBasin_ExpandJson",
+      "type": "Dataflow"
+    },
+    {
+      "id": "9e360de8-09c8-5394-b7bb-54b682cbb047",
+      "displayName": "Pl_Copy_Files_to_lh",
+      "type": "DataPipeline"
+    }
+  ],
+  "connections": [
+    {
+      "id": "84a8031c-65b5-5f23-9eac-d0da727644f4",
+      "alias": "fabric_pipelines",
+      "displayName": "Terra FabricDataPipelines",
+      "connectivityType": "ShareableCloud",
+      "connectionDetails": {
+        "type": "FabricDataPipelines",
+        "path": "FabricDataPipelines"
+      },
+      "credential_type": "OAuth2"
+    },
+    {
+      "id": "5f09f60e-84bb-5462-b1f1-27e51efcd377",
+      "alias": "notebook",
+      "displayName": "Terra Notebook",
+      "connectivityType": "ShareableCloud",
+      "connectionDetails": {
+        "type": "Notebook",
+        "path": "Notebook"
+      },
+      "credential_type": "OAuth2"
+    },
+    {
+      "id": "9856a8e1-fad4-52d5-a430-3d0d6e030e91",
+      "alias": "lakehouse",
+      "displayName": "Terra Lakehouse",
+      "connectivityType": "ShareableCloud",
+      "connectionDetails": {
+        "type": "Lakehouse",
+        "path": "Lakehouse"
+      },
+      "credential_type": "OAuth2"
+    }
+  ],
+  "definitions": [
+    {
+      "item": {
+        "id": "1cf7df7a-c117-54db-8989-e0fc91cd669b",
+        "displayName": "Pl_End_to_End_Terra_workflow",
+        "type": "DataPipeline"
+      },
+      "parts": {
+        "pipeline-content.json": "items/Pl_End_to_End_Terra_workflow.DataPipeline/pipeline-content.json"
+      }
+    },
+    {
+      "item": {
+        "id": "9e360de8-09c8-5394-b7bb-54b682cbb047",
+        "displayName": "Pl_Copy_Files_to_lh",
+        "type": "DataPipeline"
+      },
+      "parts": {
+        "pipeline-content.json": "items/Pl_Copy_Files_to_lh.DataPipeline/pipeline-content.json"
+      }
+    },
+    {
+      "item": {
+        "id": "5bef19ff-5f7d-5e40-9d05-fd1e02262128",
+        "displayName": "DF_GeoBasin_ExpandJson",
+        "type": "Dataflow"
+      },
+      "parts": {
+        "mashup.pq": "items/DF_GeoBasin_ExpandJson.Dataflow/mashup.pq",
+        "queryMetadata.json": "items/DF_GeoBasin_ExpandJson.Dataflow/queryMetadata.json",
+        ".platform": "items/DF_GeoBasin_ExpandJson.Dataflow/.platform"
+      }
+    }
+  ],
+  "files": {
+    "notebooks/create_ontology_new_experience.ipynb": "05c9f7dcf9486ac08431cd6cac025c8a021911075d9af7146e17466765eea8df",
+    "items/DF_GeoBasin_ExpandJson.Dataflow/.platform": "eb11b19a71ae3ce99caa24b5e33ffa423084a448bfc5d6a98e76197dedad9d99",
+    "items/DF_GeoBasin_ExpandJson.Dataflow/mashup.pq": "a36d63eadefcc7c79f6fab6bca579876b7fda15ebfa5fafdc1cfd3e14b3016e1",
+    "items/DF_GeoBasin_ExpandJson.Dataflow/queryMetadata.json": "7b58d884271033e2bdc4927986e6c89de0170d628d7ab61dcedca8dee0088480",
+    "items/Pl_Copy_Files_to_lh.DataPipeline/pipeline-content.json": "98f747c5439aa93ae843532668a1c3a588cfd1af7905ceb3237105ba45c04118",
+    "items/Pl_End_to_End_Terra_workflow.DataPipeline/pipeline-content.json": "cdcff3723a21db320166c2e0b0ab6434725d5132e418576417220666cbd77ee7"
+  },
+  "notebook": "notebooks/create_ontology_new_experience.ipynb"
+}

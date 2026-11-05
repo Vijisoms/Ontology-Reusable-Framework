@@ -1,0 +1,5 @@
+id,label,basin_id,lon,lat,crs,source_title,source_id,publisher,licence,properties_json
+flag:coal-seam-gas,Coal seam gas (CSG),,,,,Cooper Basin regional geology,eCat 147461 · DOI 10.26186/147461,Geoscience Australia,CC BY 4.0,"{""Flag"":""Coal seam gas (CSG)"",""Meaning"":""GA framework column for unconventional resource prospectivity""}"
+flag:shale-high,Shale resources (high prospectivity),,,,,Cooper Basin regional geology,eCat 147461 · DOI 10.26186/147461,Geoscience Australia,CC BY 4.0,"{""Flag"":""Shale resources (high prospectivity)"",""Meaning"":""GA framework column for unconventional resource prospectivity""}"
+flag:shale-medium,Shale resources (medium prospectivity),,,,,Cooper Basin regional geology,eCat 147461 · DOI 10.26186/147461,Geoscience Australia,CC BY 4.0,"{""Flag"":""Shale resources (medium prospectivity)"",""Meaning"":""GA framework column for unconventional resource prospectivity""}"
+flag:tight-gas,Tight gas,,,,,GEOLOGY: Adavale Basin region,eCat 147462 · DOI 10.26186/147462,Geoscience Australia,CC BY 4.0,"{""Flag"":""Tight gas"",""Meaning"":""GA framework column for unconventional resource prospectivity""}"

@@ -1,0 +1,429 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy Entities to Raw schema",
+        "type": "InvokePipeline",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "waitOnCompletion": true,
+          "operationType": "InvokeFabricPipeline",
+          "pipelineId": "9e360de8-09c8-5394-b7bb-54b682cbb047",
+          "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+          "parameters": {
+            "source_folder": "fabric-iq-kit/entities",
+            "dest_schema": "raw"
+          }
+        },
+        "externalReferences": {
+          "connection": "84a8031c-65b5-5f23-9eac-d0da727644f4"
+        }
+      },
+      {
+        "name": "Explode properties Json into Columns",
+        "type": "RefreshDataflow",
+        "dependsOn": [
+          {
+            "activity": "Copy Entities to Raw schema",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "dataflowId": "5bef19ff-5f7d-5e40-9d05-fd1e02262128",
+          "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+          "notifyOption": "NoNotification",
+          "dataflowType": "DataflowFabric",
+          "executeMashupQueriesOnly": true
+        }
+      },
+      {
+        "name": "Copy relationships table to dbo",
+        "type": "InvokePipeline",
+        "dependsOn": [
+          {
+            "activity": "Explode properties Json into Columns",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "waitOnCompletion": true,
+          "operationType": "InvokeFabricPipeline",
+          "pipelineId": "9e360de8-09c8-5394-b7bb-54b682cbb047",
+          "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+          "parameters": {
+            "source_folder": "fabric-iq-kit/relationships",
+            "dest_schema": "dbo"
+          }
+        },
+        "externalReferences": {
+          "connection": "84a8031c-65b5-5f23-9eac-d0da727644f4"
+        }
+      },
+      {
+        "name": "Copy split-relationship-tables to dbo",
+        "type": "InvokePipeline",
+        "dependsOn": [
+          {
+            "activity": "Copy relationships table to dbo",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "waitOnCompletion": true,
+          "operationType": "InvokeFabricPipeline",
+          "pipelineId": "9e360de8-09c8-5394-b7bb-54b682cbb047",
+          "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+          "parameters": {
+            "source_folder": "fabric-iq-kit/optional/split-relationship-tables",
+            "dest_schema": "dbo"
+          }
+        },
+        "externalReferences": {
+          "connection": "84a8031c-65b5-5f23-9eac-d0da727644f4"
+        }
+      },
+      {
+        "name": "Copy data cooper_boreholes csv",
+        "type": "Copy",
+        "dependsOn": [
+          {
+            "activity": "Copy split-relationship-tables to dbo",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "lh_terra",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+                    "artifactId": "6f6c49b7-d05e-5fc8-a324-2ad38b2aeac0",
+                    "rootFolder": "Files"
+                  },
+                  "externalReferences": {
+                    "connection": "9856a8e1-fad4-52d5-a430-3d0d6e030e91"
+                  }
+                }
+              },
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": "cooper_boreholes.csv",
+                  "folderPath": "fabric-iq-kit"
+                },
+                "columnDelimiter": ",",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
+              },
+              "schema": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "applyVOrder": false,
+            "enableTimestampNtz": false,
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "lh_terra",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+                    "artifactId": "6f6c49b7-d05e-5fc8-a324-2ad38b2aeac0",
+                    "rootFolder": "Tables"
+                  },
+                  "externalReferences": {
+                    "connection": "9856a8e1-fad4-52d5-a430-3d0d6e030e91"
+                  }
+                }
+              },
+              "type": "LakehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "cooper_boreholes"
+              }
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "ga_objectid",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "ga_objectid",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "well_name",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "well_name",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "state",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "state",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "spud_date",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "spud_date",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "spud_year",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "spud_year",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "total_depth_m",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "total_depth_m",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "lat",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "lat",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "lon",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "lon",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "crs",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "crs",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "inside_basin_extent_ga",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "inside_basin_extent_ga",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "inside_app_outline",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "inside_app_outline",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "ga_date_qc",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "ga_date_qc",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "ga_depth_qc",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "ga_depth_qc",
+                  "physicalType": "string"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      },
+      {
+        "name": "Notebook1",
+        "type": "TridentNotebook",
+        "dependsOn": [
+          {
+            "activity": "Copy data cooper_boreholes csv",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "notebookId": "5636c4f8-e06e-514c-b274-70945ee24df7",
+          "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+          "parameters": {
+            "workspace_name": {
+              "value": "XOM_Terra_Demo",
+              "type": "string"
+            },
+            "lakehouse_name": {
+              "value": "lh_terra",
+              "type": "string"
+            },
+            "source_schema": {
+              "value": "dbo",
+              "type": "string"
+            },
+            "entity_folder": {
+              "value": "Files/fabric-iq-kit/entities",
+              "type": "string"
+            },
+            "relationship_folder": {
+              "value": "Files/fabric-iq-kit/relationships",
+              "type": "string"
+            },
+            "ontology_name": {
+              "value": "ont_terra_bound_try",
+              "type": "string"
+            },
+            "apply_changes": {
+              "value": true,
+              "type": "bool"
+            },
+            "allow_update_existing": {
+              "value": true,
+              "type": "bool"
+            }
+          }
+        },
+        "externalReferences": {
+          "connection": "5f09f60e-84bb-5462-b1f1-27e51efcd377"
+        }
+      }
+    ]
+  }
+}

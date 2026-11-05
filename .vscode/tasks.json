@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Deploy to Fabric",
+      "type": "process",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}\\deployment\\deploy_to_fabric.py",
+        "--workspace-id",
+        "${input:fabricWorkspaceId}",
+        "--package",
+        "${workspaceFolder}\\deployment\\package\\manifest.json"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "fabricWorkspaceId",
+      "type": "promptString",
+      "description": "Target Fabric workspace ID (GUID; existing workspace with active capacity)"
+    }
+  ]
+}

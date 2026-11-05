@@ -1,0 +1,4 @@
+source_id,source_type,target_id,target_type
+doc:inn-wcr,Document,bh:innamincka-1,Wellbore
+doc:mar-wcr,Document,bh:marabooka-1,Wellbore
+doc:mar-encl,Document,bh:marabooka-1,Wellbore

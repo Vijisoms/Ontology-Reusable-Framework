@@ -1,0 +1,5 @@
+id,label,basin_id,lon,lat,crs,source_title,source_id,publisher,licence,properties_json
+hydro:adavale-aquifer,Adavale aquifer,adavale,,,,GEOLOGY: Adavale Basin region,eCat 147462 · DOI 10.26186/147462,Geoscience Australia,CC BY 4.0,"{""Interval"":""Adavale aquifer""}"
+hydro:clematis-aquifer,Clematis aquifer,galilee,,,,GEOLOGY: Galilee Basin region,eCat 147460 · DOI 10.26186/147460,Geoscience Australia,CC BY 4.0,"{""Interval"":""Clematis aquifer""}"
+hydro:betts-creek-aquifer,Betts Creek aquifer,galilee,,,,GEOLOGY: Galilee Basin region,eCat 147460 · DOI 10.26186/147460,Geoscience Australia,CC BY 4.0,"{""Interval"":""Betts Creek aquifer""}"
+hydro:joe-joe-partial-aquifer,Joe Joe partial aquifer,galilee,,,,GEOLOGY: Galilee Basin region,eCat 147460 · DOI 10.26186/147460,Geoscience Australia,CC BY 4.0,"{""Interval"":""Joe Joe partial aquifer""}"

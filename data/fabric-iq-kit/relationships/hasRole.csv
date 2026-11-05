@@ -1,0 +1,15 @@
+source_id,source_type,target_id,target_type
+unit:adavale-basin:buckabie-formation,StratigraphicUnit,role:reservoir,PetroleumRole
+unit:adavale-basin:etonvale-formation,StratigraphicUnit,role:reservoir,PetroleumRole
+unit:adavale-basin:lissoy-sandstone,StratigraphicUnit,role:reservoir,PetroleumRole
+unit:adavale-basin:bury-limestone,StratigraphicUnit,role:source,PetroleumRole
+unit:adavale-basin:eastwood-formation,StratigraphicUnit,role:reservoir-seal-above,PetroleumRole
+unit:adavale-basin:gumbardo-formation,StratigraphicUnit,role:partial-reservoir,PetroleumRole
+unit:galilee-basin:aramac-coal-measures,StratigraphicUnit,role:source,PetroleumRole
+unit:galilee-basin:aramac-coal-measures,StratigraphicUnit,role:reservoir,PetroleumRole
+unit:galilee-basin:aramac-coal-measures,StratigraphicUnit,role:seal,PetroleumRole
+unit:galilee-basin:jochmus-formation,StratigraphicUnit,role:reservoir,PetroleumRole
+unit:galilee-basin:jochmus-formation,StratigraphicUnit,role:seal,PetroleumRole
+unit:galilee-basin:jericho-formation,StratigraphicUnit,role:reservoir,PetroleumRole
+unit:galilee-basin:jericho-formation,StratigraphicUnit,role:seal,PetroleumRole
+unit:galilee-basin:lake-galilee-sandstone,StratigraphicUnit,role:reservoir,PetroleumRole

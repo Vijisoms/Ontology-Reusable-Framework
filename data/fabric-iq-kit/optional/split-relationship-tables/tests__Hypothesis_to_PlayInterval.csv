@@ -1,0 +1,7 @@
+source_id,source_type,target_id,target_type
+hyp:analog,Hypothesis,play:cooper-basin-patchawarra-play,PlayInterval
+hyp:analog,Hypothesis,play:galilee-basin-aramac-play,PlayInterval
+hyp:rift,Hypothesis,play:cooper-basin-toolachee-play,PlayInterval
+hyp:rift,Hypothesis,play:cooper-basin-rem-play,PlayInterval
+hyp:rift,Hypothesis,play:cooper-basin-patchawarra-play,PlayInterval
+hyp:rift,Hypothesis,play:cooper-basin-merrimelia-play,PlayInterval

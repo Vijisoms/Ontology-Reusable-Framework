@@ -1,0 +1,4 @@
+source_id,source_type,target_id,target_type
+hyp:rift,Hypothesis,basin:galilee,Basin
+hyp:rift,Hypothesis,basin:northbowen,Basin
+hyp:stress,Hypothesis,basin:cooper,Basin

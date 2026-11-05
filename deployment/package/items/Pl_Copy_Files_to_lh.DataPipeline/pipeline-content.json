@@ -1,0 +1,197 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Get Metadata1",
+        "type": "GetMetadata",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "fieldList": [
+            "childItems"
+          ],
+          "datasetSettings": {
+            "annotations": [],
+            "connectionSettings": {
+              "name": "lh_terra",
+              "properties": {
+                "annotations": [],
+                "type": "Lakehouse",
+                "typeProperties": {
+                  "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+                  "artifactId": "6f6c49b7-d05e-5fc8-a324-2ad38b2aeac0",
+                  "rootFolder": "Files"
+                },
+                "externalReferences": {
+                  "connection": "9856a8e1-fad4-52d5-a430-3d0d6e030e91"
+                }
+              }
+            },
+            "type": "Binary",
+            "typeProperties": {
+              "location": {
+                "type": "LakehouseLocation",
+                "folderPath": {
+                  "value": "@pipeline().parameters.source_folder",
+                  "type": "Expression"
+                }
+              }
+            }
+          },
+          "storeSettings": {
+            "type": "LakehouseReadSettings",
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {
+            "type": "BinaryReadSettings"
+          }
+        }
+      },
+      {
+        "name": "ForEach1",
+        "type": "ForEach",
+        "dependsOn": [
+          {
+            "activity": "Get Metadata1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "typeProperties": {
+          "items": {
+            "value": "@activity('Get Metadata1').output.childItems",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "name": "Copy data1",
+              "type": "Copy",
+              "dependsOn": [],
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "source": {
+                  "type": "DelimitedTextSource",
+                  "storeSettings": {
+                    "type": "AzureBlobStorageReadSettings",
+                    "recursive": false,
+                    "enablePartitionDiscovery": false
+                  },
+                  "formatSettings": {
+                    "type": "DelimitedTextReadSettings"
+                  },
+                  "datasetSettings": {
+                    "annotations": [],
+                    "connectionSettings": {
+                      "name": "lh_terra",
+                      "properties": {
+                        "annotations": [],
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+                          "artifactId": "6f6c49b7-d05e-5fc8-a324-2ad38b2aeac0",
+                          "rootFolder": "Files"
+                        },
+                        "externalReferences": {
+                          "connection": "9856a8e1-fad4-52d5-a430-3d0d6e030e91"
+                        }
+                      }
+                    },
+                    "type": "DelimitedText",
+                    "typeProperties": {
+                      "location": {
+                        "type": "LakehouseLocation",
+                        "fileName": {
+                          "value": "@item().name",
+                          "type": "Expression"
+                        },
+                        "folderPath": {
+                          "value": "@pipeline().parameters.source_folder",
+                          "type": "Expression"
+                        }
+                      },
+                      "columnDelimiter": ",",
+                      "escapeChar": "\"",
+                      "firstRowAsHeader": true,
+                      "quoteChar": "\""
+                    },
+                    "schema": []
+                  }
+                },
+                "sink": {
+                  "type": "LakehouseTableSink",
+                  "tableActionOption": "OverwriteSchema",
+                  "partitionOption": "None",
+                  "applyVOrder": false,
+                  "enableTimestampNtz": false,
+                  "datasetSettings": {
+                    "annotations": [],
+                    "connectionSettings": {
+                      "name": "lh_terra",
+                      "properties": {
+                        "annotations": [],
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "workspaceId": "2a5449be-c5ac-5850-8580-f0700a57903d",
+                          "artifactId": "6f6c49b7-d05e-5fc8-a324-2ad38b2aeac0",
+                          "rootFolder": "Tables"
+                        },
+                        "externalReferences": {
+                          "connection": "9856a8e1-fad4-52d5-a430-3d0d6e030e91"
+                        }
+                      }
+                    },
+                    "type": "LakehouseTable",
+                    "schema": [],
+                    "typeProperties": {
+                      "schema": {
+                        "value": "@pipeline().parameters.dest_schema",
+                        "type": "Expression"
+                      },
+                      "table": {
+                        "value": "@replace(item().name,'.csv','')",
+                        "type": "Expression"
+                      }
+                    }
+                  }
+                },
+                "enableStaging": false,
+                "translator": {
+                  "type": "TabularTranslator",
+                  "typeConversion": true,
+                  "typeConversionSettings": {
+                    "allowDataTruncation": true,
+                    "treatBooleanAsNumber": false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "parameters": {
+      "source_folder": {
+        "type": "string",
+        "defaultValue": "fabric-iq-kit/optional/split-relationship-tables"
+      },
+      "dest_schema": {
+        "type": "string",
+        "defaultValue": "dbo"
+      }
+    }
+  }
+}

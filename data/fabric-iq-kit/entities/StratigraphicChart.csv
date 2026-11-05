@@ -1,0 +1,5 @@
+id,label,basin_id,lon,lat,crs,source_title,source_id,publisher,licence,properties_json
+chart:TEGI-55834-6,Stratigraphic Framework Cooper Basin,cooper,,,,Stratigraphic charts (TEGI-55834-6),TEGI-55834-6,Geoscience Australia,CC BY 4.0,"{""Product"":""TEGI-55834-6"",""Image"":""1250 × 1171 px, reduced for this file""}"
+chart:TEGI-55834-2,Stratigraphic Framework Adavale Basin,adavale,,,,Stratigraphic charts (TEGI-55834-2),TEGI-55834-2,Geoscience Australia,CC BY 4.0,"{""Product"":""TEGI-55834-2"",""Image"":""1400 × 1343 px, reduced for this file""}"
+chart:TEGI-55834-3,Stratigraphic Framework Galilee Basin,galilee,,,,Stratigraphic charts (TEGI-55834-3),TEGI-55834-3,Geoscience Australia,CC BY 4.0,"{""Product"":""TEGI-55834-3"",""Image"":""1400 × 1227 px, reduced for this file""}"
+chart:TEGI-55834-7,Stratigraphic Framework north Bowen Basin,northbowen,,,,Stratigraphic charts (TEGI-55834-7),TEGI-55834-7,Geoscience Australia,CC BY 4.0,"{""Product"":""TEGI-55834-7"",""Image"":""1400 × 1023 px, reduced for this file""}"

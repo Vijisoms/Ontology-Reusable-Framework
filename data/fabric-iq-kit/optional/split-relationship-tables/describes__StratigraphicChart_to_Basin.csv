@@ -1,0 +1,5 @@
+source_id,source_type,target_id,target_type
+chart:TEGI-55834-6,StratigraphicChart,basin:cooper,Basin
+chart:TEGI-55834-2,StratigraphicChart,basin:adavale,Basin
+chart:TEGI-55834-3,StratigraphicChart,basin:galilee,Basin
+chart:TEGI-55834-7,StratigraphicChart,basin:northbowen,Basin

@@ -1,0 +1,8 @@
+{
+  "connection_bindings": {
+    "fabric_pipelines": "<your-FabricDataPipelines-connection-guid>",
+    "notebook": "<your-Notebook-connection-guid>",
+    "lakehouse": "<your-Lakehouse-connection-guid>"
+  },
+  "reference_map": {}
+}

@@ -1,0 +1,13 @@
+source_id,source_type,target_id,target_type
+hyp:analog,Hypothesis,play:cooper-basin-patchawarra-play,PlayInterval
+hyp:analog,Hypothesis,play:galilee-basin-aramac-play,PlayInterval
+hyp:rift,Hypothesis,play:cooper-basin-toolachee-play,PlayInterval
+hyp:rift,Hypothesis,play:cooper-basin-rem-play,PlayInterval
+hyp:rift,Hypothesis,play:cooper-basin-patchawarra-play,PlayInterval
+hyp:rift,Hypothesis,play:cooper-basin-merrimelia-play,PlayInterval
+hyp:rift,Hypothesis,basin:galilee,Basin
+hyp:rift,Hypothesis,basin:northbowen,Basin
+hyp:communication,Hypothesis,bh:marabooka-1,Wellbore
+hyp:communication,Hypothesis,unit:cooper-basin:toolachee-formation,StratigraphicUnit
+hyp:communication,Hypothesis,unit:cooper-basin:patchawarra-formation,StratigraphicUnit
+hyp:stress,Hypothesis,basin:cooper,Basin

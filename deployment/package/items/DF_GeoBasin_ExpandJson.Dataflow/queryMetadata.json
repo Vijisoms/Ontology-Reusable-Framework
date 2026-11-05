@@ -1,0 +1,149 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "maxConcurrency": 1
+  },
+  "name": "DF_GeoBasin_ExpandJson",
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "fxExpandProperties": {
+      "queryId": "b22e5480-a189-5033-a1f4-deae931b42ad",
+      "queryName": "fxExpandProperties",
+      "loadEnabled": false
+    },
+    "EntityLakehouse": {
+      "queryId": "ffd88feb-946c-5734-a840-7372d16e1bea",
+      "queryName": "EntityLakehouse",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Basin": {
+      "queryId": "1cc5daf3-cf67-509e-ac32-f4cba4bf7738",
+      "queryName": "Basin"
+    },
+    "Basin_DataDestination": {
+      "queryId": "28002cb4-cae1-587d-9c75-46b36ec8d267",
+      "queryName": "Basin_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "CoreImage": {
+      "queryId": "4cd2ed08-bd31-5cb1-8d6c-3bbcf281e864",
+      "queryName": "CoreImage"
+    },
+    "CoreImage_DataDestination": {
+      "queryId": "18a0cf56-8861-5053-9933-a0f38eedadb0",
+      "queryName": "CoreImage_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Document": {
+      "queryId": "0222c8fd-2874-5679-be0d-4dcd0d90777f",
+      "queryName": "Document"
+    },
+    "Document_DataDestination": {
+      "queryId": "61b61e7d-f8dd-5445-846b-aba1c85b5178",
+      "queryName": "Document_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "HydroInterval": {
+      "queryId": "eeab65fa-a740-5249-91be-f35d5242a477",
+      "queryName": "HydroInterval"
+    },
+    "HydroInterval_DataDestination": {
+      "queryId": "d07cbd44-3c7d-5921-b3b9-318a216921d0",
+      "queryName": "HydroInterval_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Hypothesis": {
+      "queryId": "d7ec3711-8ada-5dd2-b36f-2d6ba81d307b",
+      "queryName": "Hypothesis"
+    },
+    "Hypothesis_DataDestination": {
+      "queryId": "80e08c1f-185a-5c56-87b3-ff019d3a0509",
+      "queryName": "Hypothesis_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "PetroleumRole": {
+      "queryId": "e219dfee-0d1f-5795-aefc-2cea19cef95d",
+      "queryName": "PetroleumRole"
+    },
+    "PetroleumRole_DataDestination": {
+      "queryId": "29a8681c-8cb8-584f-b455-771ead3e6416",
+      "queryName": "PetroleumRole_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "PlayInterval": {
+      "queryId": "89100ef8-e5dc-59c2-8625-b2d91a7898f7",
+      "queryName": "PlayInterval"
+    },
+    "PlayInterval_DataDestination": {
+      "queryId": "c680573f-9e86-5a02-8441-c16b18ad47c4",
+      "queryName": "PlayInterval_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "ResourceFlag": {
+      "queryId": "10d97624-bc01-5cf8-9c47-333457e95dc2",
+      "queryName": "ResourceFlag"
+    },
+    "ResourceFlag_DataDestination": {
+      "queryId": "ce0a7674-80b2-5670-bac0-07a2a017053c",
+      "queryName": "ResourceFlag_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "StratigraphicChart": {
+      "queryId": "9d0708a8-ff8c-594b-be40-458874b2bab1",
+      "queryName": "StratigraphicChart"
+    },
+    "StratigraphicChart_DataDestination": {
+      "queryId": "799a2c71-219f-5237-a81e-f1ba452efa64",
+      "queryName": "StratigraphicChart_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "StratigraphicUnit": {
+      "queryId": "a011ab6a-6588-529b-ac9d-999cd27b4fd7",
+      "queryName": "StratigraphicUnit"
+    },
+    "StratigraphicUnit_DataDestination": {
+      "queryId": "36ddad02-c86c-52dc-b392-596c0fe2499e",
+      "queryName": "StratigraphicUnit_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "StructuralElement": {
+      "queryId": "bde91295-ffd2-5ede-9f2f-d0a2722a00ac",
+      "queryName": "StructuralElement"
+    },
+    "StructuralElement_DataDestination": {
+      "queryId": "4f098c41-f5b4-5dcb-be3a-41049792bf26",
+      "queryName": "StructuralElement_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Wellbore": {
+      "queryId": "62419ac6-3bfc-5124-bd79-db560a29fab8",
+      "queryName": "Wellbore"
+    },
+    "Wellbore_DataDestination": {
+      "queryId": "bee549cd-7295-568e-ab79-5029b04a57e8",
+      "queryName": "Wellbore_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "allowNativeQueries": false,
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"38d98779-5744-5397-b859-b58c4a27c8f6\",\"DatasourceId\":\"9856a8e1-fad4-52d5-a430-3d0d6e030e91\"}"
+    }
+  ]
+}

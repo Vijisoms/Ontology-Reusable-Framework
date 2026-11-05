@@ -1,0 +1,35 @@
+kind,name,label,from,to,count
+entity,StratigraphicUnit,Stratigraphic unit,,,137
+entity,StructuralElement,Structural feature,,,86
+entity,CoreImage,Core image,,,79
+entity,PlayInterval,Play interval,,,35
+entity,Wellbore,Well,,,32
+entity,Basin,Basin,,,12
+entity,Document,Document,,,11
+entity,PetroleumRole,Petroleum role,,,5
+entity,ResourceFlag,Resource flag,,,4
+entity,HydroInterval,Hydrostratigraphic interval,,,4
+entity,StratigraphicChart,Stratigraphic chart,,,4
+entity,Hypothesis,Hypothesis,,,4
+relationship,shownOn,shown on chart,StratigraphicUnit,StratigraphicChart,171
+relationship,belongsToBasin,belongs to basin,StratigraphicUnit,Basin,137
+relationship,assignedToPlay,assigned to play interval,StratigraphicUnit,PlayInterval,131
+relationship,locatedIn,located in,StructuralElement,Basin,86
+relationship,fromBorehole,from well,CoreImage,Wellbore,80
+relationship,mappedIn,mapped in the package,StratigraphicUnit,Basin,79
+relationship,isPartOf,is part of,StratigraphicUnit,StratigraphicUnit,76
+relationship,depictsUnit,shows unit,CoreImage,StratigraphicUnit,65
+relationship,partOfPanel,part of core panel,CoreImage,CoreImage,41
+relationship,belongsToBasin,belongs to basin,PlayInterval,Basin,35
+relationship,depictsPlay,shows play interval,CoreImage,PlayInterval,35
+relationship,locatedIn,located in,Wellbore,Basin,32
+relationship,inHydroInterval,hydrostratigraphic interval,StratigraphicUnit,HydroInterval,25
+relationship,hasResourceFlag,resource flag,StratigraphicUnit,ResourceFlag,19
+relationship,hasRole,petroleum role,StratigraphicUnit,PetroleumRole,14
+relationship,tests,tests,Hypothesis,PlayInterval,6
+relationship,describes,describes,StratigraphicChart,Basin,4
+relationship,describes,describes,Document,Basin,4
+relationship,reportFor,report for,Document,Wellbore,3
+relationship,tests,tests,Hypothesis,Basin,3
+relationship,tests,tests,Hypothesis,StratigraphicUnit,2
+relationship,tests,tests,Hypothesis,Wellbore,1

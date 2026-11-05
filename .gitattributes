@@ -1,0 +1,2 @@
+# Package integrity hashes require byte-for-byte preservation on every platform.
+deployment/package/** -text

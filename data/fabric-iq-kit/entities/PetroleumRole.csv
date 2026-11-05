@@ -1,0 +1,6 @@
+id,label,basin_id,lon,lat,crs,source_title,source_id,publisher,licence,properties_json
+role:reservoir,Reservoir,,,,,GEOLOGY: Adavale Basin region,eCat 147462 · DOI 10.26186/147462,Geoscience Australia,CC BY 4.0,"{""Role"":""Reservoir"",""Meaning"":""Petroleum-system role recorded in the GA framework table""}"
+role:source,Source,,,,,GEOLOGY: Adavale Basin region,eCat 147462 · DOI 10.26186/147462,Geoscience Australia,CC BY 4.0,"{""Role"":""Source"",""Meaning"":""Petroleum-system role recorded in the GA framework table""}"
+role:reservoir-seal-above,Reservoir (seal above),,,,,GEOLOGY: Adavale Basin region,eCat 147462 · DOI 10.26186/147462,Geoscience Australia,CC BY 4.0,"{""Role"":""Reservoir (seal above)"",""Meaning"":""Petroleum-system role recorded in the GA framework table""}"
+role:partial-reservoir,Partial reservoir,,,,,GEOLOGY: Adavale Basin region,eCat 147462 · DOI 10.26186/147462,Geoscience Australia,CC BY 4.0,"{""Role"":""Partial reservoir"",""Meaning"":""Petroleum-system role recorded in the GA framework table""}"
+role:seal,Seal,,,,,GEOLOGY: Galilee Basin region,eCat 147460 · DOI 10.26186/147460,Geoscience Australia,CC BY 4.0,"{""Role"":""Seal"",""Meaning"":""Petroleum-system role recorded in the GA framework table""}"

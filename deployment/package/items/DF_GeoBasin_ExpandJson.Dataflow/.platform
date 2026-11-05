@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "DF_GeoBasin_ExpandJson"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5bef19ff-5f7d-5e40-9d05-fd1e02262128"
+  }
+}
