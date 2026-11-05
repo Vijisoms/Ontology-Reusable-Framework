@@ -1,5 +1,4 @@
-# Ontology Reusable Framework - Terra standalone deployment
-
+# Ontology Reusable Framework 
 This package deploys from local files. You do not need access to the publisher's
 Fabric workspace, connections, tenant or Azure subscription.
 
